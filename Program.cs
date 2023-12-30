@@ -8,9 +8,11 @@ class Program
     {
         List<Person> people = new List<Person>
         {
-            new Person(1, "John", "Doe", new DateTime(1990, 5, 15)),
-            new Person(2, "Jane", "Smith", new DateTime(1985, 10, 20)),
-            new Person(3, "Amir", "Olimov", new DateTime(1987, 01, 13)),
+            new Person( "John", "Doe", new DateTime(1990, 5, 15)),
+            new Person( "Jane", "Smith", new DateTime(1985, 10, 20)),
+            new Person( "Amir", "Olimov", new DateTime(1987, 01, 13)),
+
+            
             // Добавьте еще записей при необходимости
         };
 
@@ -35,7 +37,7 @@ class Program
             {
                 foreach (var person in people)
                 {
-                    writer.WriteLine($"{person.Id},{person.Name},{person.LastName},{person.Birthday.ToShortDateString()}");
+                    writer.WriteLine($"{person.Id} {person.Name} {person.LastName} {person.Birthday.ToShortDateString()}");
                 }
             }
 
@@ -61,11 +63,11 @@ class Program
                     string[] parts = line.Split(' ');
                     if (parts.Length == 4)
                     {
-                        int id = int.Parse(parts[0]);
+                        string id = (parts[0]);
                         string name = parts[1];
                         string lastName = parts[2];
                         DateTime birthday = DateTime.Parse(parts[3]);
-                        people.Add(new Person(id, name, lastName, birthday));
+                        people.Add(new Person(name, lastName, birthday));
                     }
                 }
             }
@@ -79,4 +81,6 @@ class Program
 
         return people;
     }
+
+    
 }

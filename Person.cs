@@ -8,14 +8,14 @@ namespace PersonApp
 {
     internal class Person
     {
-        public int Id { get; set; }
+        public Guid Id { get; } = Guid.NewGuid();
         public string Name { get; set; }
         public string LastName { get; set; }
         public DateTime Birthday { get; set; }
 
-        public Person(int id, string name, string lastName, DateTime birthday)
+        public Person(string name, string lastName, DateTime birthday)
         {
-            Id = id;
+            
             Name = name;
             LastName = lastName;
             Birthday = birthday;
